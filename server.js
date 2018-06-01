@@ -18,8 +18,8 @@ const errorHandler = (status, message, res) => {
 //*****Project Endpoints*****/
 app.get('/api/projects', (req, res) => {
     projects.get()
-        .then( projectsList => {
-            res.status(200).json(projectsList)
+        .then( projects => {
+            res.status(200).json(projects);
         })
         .catch(error => {
             return errorHandler(500, "Project done got borked.", res);
@@ -30,7 +30,7 @@ app.get('/api/projects/:id', (req,res) => {
     const { id } = req.params
     projects.get(id)
         .then (project => {
-            res.status(200).json(project)
+            res.status(200).json(project);
         })
         .catch(error => {
             return errorHandler(404, 'Derp! Ya done gone lost that thang!', res);
@@ -44,7 +44,7 @@ app.post('/api/projects/:id', (req, res) => {
     } else {
         projects.insert({ name, description, completed })
             .then( proj => {
-                res.status(201).json(proj)
+                res.status(201).json(proj);
             })
             .catch(error => {
                 return errorHandler(500, 'Merp de derp. Yousa founda ze problem.', res);
@@ -60,7 +60,7 @@ app.delete('/api/projects/:id', (req, res) => {
                 res.status(200)
                 projects.get()
                     .then( projectsList => {
-                        res.status(200).json(projectsList)
+                        res.status(200).json(projectsList);
                     })
                     .catch(error => {
                         return errorHandler(500, 'Cannot get list of projects', res);
@@ -90,11 +90,11 @@ app.put('/api/projects/:id', (req, res) => {
     }
 })
 
-app.get('/api/projects/:ie/actions', (req, res) => {
-    const { id } = req.params
-    projects.getprojectActions(id)
-        .then(projectActions => {
-            res.status(200).json(projectActions)
+app.get('/api/projects/:id/actions', (req, res) => {
+    const { id } = req.params;
+    projects.getProjectActions(id)
+        .then(actions => {
+            res.status(200).json(actions);
         })
         .catch(error => {
             return errorHandler(500, 'Cannot find actionss by this id', res)
@@ -105,8 +105,8 @@ app.get('/api/projects/:ie/actions', (req, res) => {
 //*****Project Endpoints*****/
 app.get('api/actions', (req, res) => {
     actions.get()
-        .then( actionList => {
-            res.status(200).json(actionsList)
+        .then( actions => {
+            res.status(200).json(actions)
         })
         .catch(error => {
             return errorHandler(500, 'Cannot get le actions.', res)
@@ -114,7 +114,7 @@ app.get('api/actions', (req, res) => {
 })
 
 app.get('/api/actions/:id', (req, res) => {
-    const { id } = req.params
+    const { id } = req.params.id
     actions.get(id)
         .then( action => {
             res.status(200).json(action)
