@@ -17,8 +17,8 @@ const errorHandler = (status, message, res) => {
 
 //*****Project Endpoints*****/
 app.get('/api/projects', (req, res) => {
-    project.get()
-        .then( proj => {
+    projects.get()
+        .then( projectsList => {
             res.status(200).json(projectsList)
         })
         .catch(error => {
@@ -29,8 +29,8 @@ app.get('/api/projects', (req, res) => {
 app.get('/api/projects/:id', (req,res) => {
     const { id } = req.params
     projects.get(id)
-        .then (proj => {
-            res.status(200).json(proj)
+        .then (project => {
+            res.status(200).json(project)
         })
         .catch(error => {
             return errorHandler(404, 'Derp! Ya done gone lost that thang!', res);
