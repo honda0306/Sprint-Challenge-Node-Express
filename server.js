@@ -97,7 +97,7 @@ app.get('/api/projects/:id/actions', (req, res) => {
             res.status(200).json(actions);
         })
         .catch(error => {
-            return errorHandler(500, 'Cannot find actionss by this id', res)
+            return errorHandler(500, 'Cannot find actions by this id', res)
         })
 })
 
