@@ -1,0 +1,17 @@
+{
+  "name": "Sprint-Challenge-Node-Express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/honda0306/Sprint-Challenge-Node-Express.git",
+  "author": "Chris Honda <christopher.honda92@gmail.com>",
+  "scripts": "nodemon server.js",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "knex": "^0.14.6",
+    "sqlite3": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
